@@ -38,6 +38,44 @@ html, body {
     background-color: black;
 }
 
+.browser-compatible-animation(@sim-planet-umlaufzeit:0){
+    -webkit-animation: spin-right @sim-planet-umlaufzeit linear infinite;
+     -moz-animation: spin-right @sim-planet-umlaufzeit linear infinite;
+      -ms-animation: spin-right @sim-planet-umlaufzeit linear infinite;
+       -o-animation: spin-right @sim-planet-umlaufzeit linear infinite;
+          animation: spin-right @sim-planet-umlaufzeit linear infinite;
+}
+
+.orbit-properties(@sim-planet-sonnenabstand:0){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 2*@sim-planet-sonnenabstand;
+    height: 2*@sim-planet-sonnenabstand;
+    margin-top: -@sim-planet-sonnenabstand;
+    margin-left: -@sim-planet-sonnenabstand;
+
+    border-width: 1px;
+    border-style: dotted;
+    border-color: white;
+    border-radius: 50%;
+
+}
+
+.planet-properties(@width:20,@height:20){
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    height: @height;
+    width: @width;
+    margin-left: -@width/2px;
+    margin-top: -@height/2px;
+
+}
+
 #sun {
     position: absolute;
     top: @sun-top;
@@ -57,150 +95,58 @@ html, body {
 }
 
 #merkur {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 5px;
-    width: 5px;
-    margin-left: -5/2px;
-    margin-top: -5/2px;
+    .planet-properties(@width:5,@height:5);
 }
 
 #venus {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 5px;
-    width: 5px;
-    margin-left: -5/2px;
-    margin-top: -5/2px;
+    .planet-properties(@width:5,@height:5);
 }
 
 
 #earth {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 5px;
-    width: 5px;
-    margin-left: -5/2px;
-    margin-top: -5/2px;
+    .planet-properties(@width:5,@height:5);
 }
 
 #mars {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 5px;
-    width: 5px;
-    margin-left: -5/2px;
-    margin-top: -5/2px;
+    .planet-properties(@width:5,@height:5);
 }
 
 #jupiter {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    .planet-properties(@width:25,@height:25);
 
-    height: 25px;
-    width: 25px;
-    margin-left: -12px;
-    margin-top: -12px;
 }
 
 #saturn {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 25px;
-    width: 25px;
-    margin-left: -12px;
-    margin-top: -12px;
+    .planet-properties(@width:25,@height:25);
 }
 
 #uranus {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 25px;
-    width: 25px;
-    margin-left: -12px;
-    margin-top: -12px;
+    .planet-properties(@width:25,@height:25);
 }
 
 #neptun {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 25px;
-    width: 25px;
-    margin-left: -12px;
-    margin-top: -12px;
+    .planet-properties(@width:25,@height:25);
 }
 
 #pluto {
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    height: 25px;
-    width: 25px;
-    margin-left: -12px;
-    margin-top: -12px;
+    .planet-properties(@width:25,@height:25);
 }
 
 #merkur-orbit {
     @sim-merkur-umlaufzeit: (@merkurumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-merkur-sonnenabstand: (@merkur-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-merkur-sonnenabstand;
-    height: 2*@sim-merkur-sonnenabstand;
-    margin-top: -@sim-merkur-sonnenabstand;
-    margin-left: -@sim-merkur-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
     
-    -webkit-animation: spin-right @sim-merkur-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-merkur-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-merkur-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-merkur-umlaufzeit linear infinite;
-          animation: spin-right @sim-merkur-umlaufzeit linear infinite;
+    .orbit-properties(@sim-merkur-sonnenabstand);
+    .browser-compatible-animation(@sim-merkur-umlaufzeit);
 
 }
 
 #venus-orbit {
     @sim-venus-umlaufzeit:(@venusumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-venus-sonnenabstand: (@venus-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-venus-sonnenabstand;
-    height: 2*@sim-venus-sonnenabstand;
-    margin-top: -@sim-venus-sonnenabstand;
-    margin-left: -@sim-venus-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
     
-    -webkit-animation: spin-right @sim-venus-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-venus-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-venus-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-venus-umlaufzeit linear infinite;
-          animation: spin-right @sim-venus-umlaufzeit linear infinite;
+    .orbit-properties(@sim-venus-sonnenabstand);
+    .browser-compatible-animation(@sim-venus-umlaufzeit);
 
 }
 
@@ -208,75 +154,24 @@ html, body {
 #earth-orbit {
     @sim-earth-umlaufzeit: (@erdumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-earth-sonnenabstand: (@erde-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-earth-sonnenabstand;
-    height: 2*@sim-earth-sonnenabstand;
-    margin-top: -@sim-earth-sonnenabstand;
-    margin-left: -@sim-earth-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-earth-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-earth-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-earth-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-earth-umlaufzeit linear infinite;
-          animation: spin-right @sim-earth-umlaufzeit linear infinite;
+    .orbit-properties(@sim-earth-sonnenabstand);    
+    .browser-compatible-animation(@sim-earth-umlaufzeit);
 
 }
 
 #mars-orbit {
     @sim-mars-umlaufzeit: (@marsumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-mars-sonnenabstand: (@mars-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-mars-sonnenabstand;
-    height: 2*@sim-mars-sonnenabstand;
-    margin-top: -@sim-mars-sonnenabstand;
-    margin-left: -@sim-mars-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-mars-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-mars-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-mars-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-mars-umlaufzeit linear infinite;
-          animation: spin-right @sim-mars-umlaufzeit linear infinite;
-
+    .orbit-properties(@sim-mars-sonnenabstand);
+    .browser-compatible-animation(@sim-mars-umlaufzeit);
 }
 
 #jupiter-orbit {
     @sim-jupiter-umlaufzeit: (@jupiterumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-jupiter-sonnenabstand: (@jupiter-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-jupiter-sonnenabstand;
-    height: 2*@sim-jupiter-sonnenabstand;
-    margin-top: -@sim-jupiter-sonnenabstand;
-    margin-left: -@sim-jupiter-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-jupiter-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-jupiter-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-jupiter-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-jupiter-umlaufzeit linear infinite;
-          animation: spin-right @sim-jupiter-umlaufzeit linear infinite;
+    .orbit-properties(@sim-jupiter-sonnenabstand);
+    .browser-compatible-animation(@sim-jupiter-umlaufzeit);
 
 }
 
@@ -284,24 +179,8 @@ html, body {
     @sim-saturn-umlaufzeit: (@saturnumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-saturn-sonnenabstand: (@saturn-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-saturn-sonnenabstand;
-    height: 2*@sim-saturn-sonnenabstand;
-    margin-top: -@sim-saturn-sonnenabstand;
-    margin-left: -@sim-saturn-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-saturn-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-saturn-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-saturn-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-saturn-umlaufzeit linear infinite;
-          animation: spin-right @sim-saturn-umlaufzeit linear infinite;
+    .orbit-properties(@sim-saturn-sonnenabstand);
+    .browser-compatible-animation(@sim-saturn-umlaufzeit);
 
 }
 
@@ -309,24 +188,8 @@ html, body {
     @sim-uranus-umlaufzeit: (@uranusumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-uranus-sonnenabstand: (@uranus-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-uranus-sonnenabstand;
-    height: 2*@sim-uranus-sonnenabstand;
-    margin-top: -@sim-uranus-sonnenabstand;
-    margin-left: -@sim-uranus-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-uranus-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-uranus-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-uranus-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-uranus-umlaufzeit linear infinite;
-          animation: spin-right @sim-uranus-umlaufzeit linear infinite;
+    .orbit-properties(@sim-uranus-sonnenabstand);    
+    .browser-compatible-animation(@sim-uranus-umlaufzeit);
 
 }
 
@@ -334,49 +197,16 @@ html, body {
     @sim-neptun-umlaufzeit: (@neptunumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-neptun-sonnenabstand: (@neptun-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-neptun-sonnenabstand;
-    height: 2*@sim-neptun-sonnenabstand;
-    margin-top: -@sim-neptun-sonnenabstand;
-    margin-left: -@sim-neptun-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-neptun-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-neptun-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-neptun-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-neptun-umlaufzeit linear infinite;
-          animation: spin-right @sim-neptun-umlaufzeit linear infinite;
+    .orbit-properties(@sim-neptun-sonnenabstand);    
+    .browser-compatible-animation(@sim-neptun-umlaufzeit);
 
 }
 
 #pluto-orbit {
     @sim-pluto-umlaufzeit: (@plutoumlaufzeit/@erdumlaufzeit)*@sim-erd-umlaufzeit;
     @sim-pluto-sonnenabstand: (@pluto-sonnenabstand/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 2*@sim-pluto-sonnenabstand;
-    height: 2*@sim-pluto-sonnenabstand;
-    margin-top: -@sim-pluto-sonnenabstand;
-    margin-left: -@sim-pluto-sonnenabstand;
-
-    border-width: 1px;    border-style: dotted;
-    border-color: white;
-    border-radius: 50%;
-    
-    -webkit-animation: spin-right @sim-pluto-umlaufzeit linear infinite;
-     -moz-animation: spin-right @sim-pluto-umlaufzeit linear infinite;
-      -ms-animation: spin-right @sim-pluto-umlaufzeit linear infinite;
-       -o-animation: spin-right @sim-pluto-umlaufzeit linear infinite;
-          animation: spin-right @sim-pluto-umlaufzeit linear infinite;
+    .orbit-properties(@sim-pluto-sonnenabstand);   
+    .browser-compatible-animation(@sim-pluto-umlaufzeit);
 
 }
 

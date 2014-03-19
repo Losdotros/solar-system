@@ -22,8 +22,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 5px;
-  width: 5px;
+  height: 5;
+  width: 5;
   margin-left: -2.5px;
   margin-top: -2.5px;
 }
@@ -31,8 +31,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 5px;
-  width: 5px;
+  height: 5;
+  width: 5;
   margin-left: -2.5px;
   margin-top: -2.5px;
 }
@@ -40,8 +40,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 5px;
-  width: 5px;
+  height: 5;
+  width: 5;
   margin-left: -2.5px;
   margin-top: -2.5px;
 }
@@ -49,8 +49,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 5px;
-  width: 5px;
+  height: 5;
+  width: 5;
   margin-left: -2.5px;
   margin-top: -2.5px;
 }
@@ -58,46 +58,46 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: -12px;
-  margin-top: -12px;
+  height: 25;
+  width: 25;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
 }
 #saturn {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: -12px;
-  margin-top: -12px;
+  height: 25;
+  width: 25;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
 }
 #uranus {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: -12px;
-  margin-top: -12px;
+  height: 25;
+  width: 25;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
 }
 #neptun {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: -12px;
-  margin-top: -12px;
+  height: 25;
+  width: 25;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
 }
 #pluto {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 25px;
-  width: 25px;
-  margin-left: -12px;
-  margin-top: -12px;
+  height: 25;
+  width: 25;
+  margin-left: -12.5px;
+  margin-top: -12.5px;
 }
 #merkur-orbit {
   position: absolute;
