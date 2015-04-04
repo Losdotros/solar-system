@@ -20,7 +20,7 @@
 @sim-erde-sonnenabstand: 10px;
 @merkur-sonnenabstand: 58 * pow(10, 6);
 @venus-sonnenabstand: 108 * pow(10, 6);
-@erde-sonnenabstand: 149.598 * pow(10, 6);
+@erde-sonnenabstand: 149.597 * pow(10, 6);
 @mars-sonnenabstand: 228 * pow(10, 6);
 @jupiter-sonnenabstand: 778 * pow(10, 6);
 @saturn-sonnenabstand: 1.43 * pow(10, 9);
@@ -28,6 +28,7 @@
 @neptun-sonnenabstand: 4.5 * pow(10, 9);
 @pluto-sonnenabstand: 5.9 * pow(10, 9);
 
+@astronomische-Einheit: 149597870700; // Meter
 
 
 
@@ -51,12 +52,14 @@ html, body {
     top: 50%;
     left: 50%;
 
-    width: 2*@sim-planet-sonnenabstand;
-    height: 2*@sim-planet-sonnenabstand;
+    @border: 0.5px;
+
+    width: 2*(@sim-planet-sonnenabstand - @border);
+    height: 2*(@sim-planet-sonnenabstand - @border);
     margin-top: -@sim-planet-sonnenabstand;
     margin-left: -@sim-planet-sonnenabstand;
 
-    border-width: 1px;
+    border-width: @border;
     border-style: dotted;
     border-color: white;
     border-radius: 50%;
@@ -76,6 +79,70 @@ html, body {
 
 }
 
+#habitale_zone_major{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    // ((((1.24 - 0.725)/ 2) * @astronomische-Einheit)/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
+    @width: (@astronomische-Einheit/(@erde-sonnenabstand*pow(10,3))) * @sim-erde-sonnenabstand;
+    @height: (@astronomische-Einheit/(@erde-sonnenabstand*pow(10,3))) * @sim-erde-sonnenabstand;
+    @border: (((((1.24 - 0.725)/ 2)) * @astronomische-Einheit)/(@erde-sonnenabstand*pow(10,3))) * @sim-erde-sonnenabstand;
+
+    background-color: transparent;
+    background: transparent;
+
+    -moz-background-clip: border-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    
+
+    width: @width + @border;
+    height: @height + @border;
+
+    margin-top: -(@height + 3*@border)/2;
+    margin-left: -(@width + 3*@border)/2;
+    
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+
+    border: @border solid rgba(255,59,150,0.2);
+}
+
+
+#habitale_zone_minor{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    // ((((1.24 - 0.725)/ 2) * @astronomische-Einheit)/@erde-sonnenabstand) * @sim-erde-sonnenabstand;
+    @width: ((((1.24 + 0.725)/ 2)) * (@astronomische-Einheit/(@erde-sonnenabstand*pow(10,3)))) * @sim-erde-sonnenabstand;
+    @height: ((((1.24 + 0.725)/ 2)) * (@astronomische-Einheit/(@erde-sonnenabstand*pow(10,3)))) * @sim-erde-sonnenabstand;
+    @border: (((((1.24 - 0.725)/ 2)) * @astronomische-Einheit)/(@erde-sonnenabstand*pow(10,3))) * @sim-erde-sonnenabstand;
+
+    background-color: transparent;
+    background: transparent;
+
+    -moz-background-clip: border-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    
+
+    width: @width + @border;
+    height: @height + @border;
+
+    margin-top: -(@height + 3*@border)/2;
+    margin-left: -(@width + 3*@border)/2;
+    
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+
+    border: @border solid rgba(59,255,150,0.2);
+}
+
+
 #sun {
     position: absolute;
     top: @sun-top;
@@ -86,10 +153,10 @@ html, body {
     margin-top: @sun-margin-top; 
     margin-left: @sun-margin-left;
 
-    border-color: orange;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 50%;
+    // border-color: orange;
+    // border-width: 1px;
+    // border-style: solid;
+    // border-radius: 50%;
 
     box-shadow: 0 0 128px red;
 }
